@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { State, Word } from '../../interfaces/word';
+import { Word } from '../../interfaces/word';
 import { NgClass } from '@angular/common';
 import { WordsService } from '../../services/words.service';
 import { mockList } from '../../mock/mock_wordList';
+import { WordInfoComponent } from '../word-info/word-info.component';
 
 @Component({
   selector: 'app-text',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, WordInfoComponent],
   templateUrl: './text.component.html',
   styleUrl: './text.component.scss',
 })
 export class TextComponent implements OnInit {
   wordList: Word[] = [];
+
+  activeWord: Word | null = null;
 
   private readonly reg = /[^a-zA-Z\s]/gi; // remove symbols
 
@@ -32,6 +35,10 @@ export class TextComponent implements OnInit {
 
     // test
     mockList.forEach(w => this.wordsService.addWord(w));
+  }
+
+  setActiveWord(id: number): void {
+    this.activeWord = this.wordsService.getWordById(id);
   }
 
 }

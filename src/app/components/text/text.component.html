@@ -4,6 +4,10 @@
     <hr>
 
     @for (word of wordList; track word.id) {
-    <span [ngClass]="word.state">{{word.word}} </span>
+    @if (word.id) {
+    <span (click)="setActiveWord(word.id)" [ngClass]="word.state">{{word.word}} </span>
+    }
     }
 </div>
+
+<app-word-info [word]="activeWord"></app-word-info>

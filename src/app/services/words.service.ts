@@ -31,6 +31,17 @@ export class WordsService {
     }
   }
 
+  getWordById(id: number): Word {
+    const word = this.wordsList.find(word => word.id === id);
+    if (word) {
+      return word;
+    }
+    else {
+      throw new Error("The word can't be found");
+    }
+    // return this.wordsList.filter(word => word.id === id)[0];
+  }
+
   private isRepeated(word: string): boolean {
     const filteredList = this.wordsList.filter(
       (wordData) => wordData.word === word
@@ -40,7 +51,9 @@ export class WordsService {
     return filteredList.length > 0;
   }
 
-  generateId(): number {
+  private generateId(): number {
     return WordsService.wordId++
   }
+
+
 }
