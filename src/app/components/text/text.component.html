@@ -1,13 +1,9 @@
 <div id="words-container">
     <p>{{text}}</p>
 
-    @for (word of wordList; track $index) {
-    <span>{{word}} </span>
-    }
-
     <hr>
 
-    <!-- @for (word of test; track $index) {
+    @for (word of wordList; track word.id) {
     <span [ngClass]="word.state">{{word.word}} </span>
-    } -->
+    }
 </div>

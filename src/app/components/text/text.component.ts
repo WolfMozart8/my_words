@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { State, Word } from '../../interfaces/word';
 import { NgClass } from '@angular/common';
 import { WordsService } from '../../services/words.service';
+import { mockList } from '../../mock/mock_wordList';
 
 @Component({
   selector: 'app-text',
@@ -12,9 +13,11 @@ import { WordsService } from '../../services/words.service';
 })
 export class TextComponent implements OnInit {
   wordList: Word[] = [];
+
   private readonly reg = /[^a-zA-Z\s]/gi; // remove symbols
 
-  text: string = "Angular creates an instance of the component for every matching HTML element it encounters. The DOM element that matches a component's selector is referred to as that component's host element. The contents of a component's template are rendered inside its host element.";
+  text: string =
+    "Angular creates an instance of the component for every matching HTML element it encounters. The DOM element that matches a component's selector is referred to as that component's host element. The contents of a component's template are rendered inside its host element.";
   // testText: string[] = [];
 
   constructor(private wordsService: WordsService) {}
@@ -26,13 +29,9 @@ export class TextComponent implements OnInit {
         this.wordList = list;
       },
     });
+
+    // test
+    mockList.forEach(w => this.wordsService.addWord(w));
   }
 
-  // for test purpose
-  addRandomState(): State {
-    const stateList: State[] = ['known', 'unknown', 'learning', 'skipped'];
-    const random = Math.floor(Math.random() * 4);
-
-    return stateList[random];
-  }
 }

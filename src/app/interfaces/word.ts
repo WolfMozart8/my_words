@@ -1,4 +1,5 @@
 export interface Word {
+	id?: number;
   word: string;
   // TODO: ENUM?
   state: State;
@@ -12,6 +13,7 @@ export interface Word {
 }
 
 const exampleWord: Word = {
+	id: 234,
   word: 'legend',
   state: 'known',
   startDate: new Date('2024-01-01'),
