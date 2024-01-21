@@ -1,0 +1,31 @@
+// ::after underline bar
+@mixin wordState($color: trasparent) {
+    content: "";
+    background-color: $color;
+    height: 0.3rem;
+    width: auto;
+    display: block;
+}
+
+#words-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1ch;
+}
+
+span {
+    font-size: 32px;
+}
+
+.unknown::after {
+    @include wordState(red);
+}
+.known::after {
+    @include wordState(blue);
+}
+.learning::after {
+    @include wordState(green);
+}
+.skipped::after {
+    @include wordState(gray);
+}
