@@ -1,4 +1,4 @@
-<div id="words-container">
+<div id="words-container" (mouseup)="getNewWordBySelection()">
     <p>{{text}}</p>
 
     <hr>
@@ -10,4 +10,4 @@
     }
 </div>
 
-<app-word-info [word]="activeWord"></app-word-info>
+<app-word-info [word]="activeWord" [newWord]="newWordToAdd"></app-word-info>

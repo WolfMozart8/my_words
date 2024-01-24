@@ -17,6 +17,8 @@ export class TextComponent implements OnInit {
 
   activeWord: Word | null = null;
 
+  newWordToAdd: string | undefined = "";
+
   private readonly reg = /[^a-zA-Z\s]/gi; // remove symbols
 
   text: string =
@@ -39,6 +41,12 @@ export class TextComponent implements OnInit {
 
   setActiveWord(id: number): void {
     this.activeWord = this.wordsService.getWordById(id);
+  }
+
+  getNewWordBySelection(): void {
+    this.newWordToAdd = window.getSelection()?.toString();
+    // restart the selected active word
+    this.activeWord = null;
   }
 
 }

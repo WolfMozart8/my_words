@@ -1,5 +1,18 @@
+@if (word) {
 <div>
     <!-- TODO: set more options -->
-    <div>{{word?.word}}</div>
-    <div>{{word?.state}}</div>
+    <div>{{word.word}}</div>
+    <div>{{word.state}}</div>
 </div>
+}
+@else {
+    <p>{{newWord}}</p>
+    <select name="word-state" id="word-state" (input)="selectState($event)">
+        <option value="known">known</option>
+        <option value="unknown">unknown</option>
+        <option value="learning">learning</option>
+        <option value="ignored">ignored</option>
+        <option value="skipped">skipped</option>
+    </select>
+    <button (click)="addWord()">add words</button>
+}
