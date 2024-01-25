@@ -45,12 +45,23 @@ export class TextComponent implements OnInit {
     this.outputText = this.inputText.match(wordOrSimbol)
   }
 
+  setClassForWords(word: string) {
+    const findWord = this.wordsService.findByWord(word);
+
+    if (findWord) {
+      return findWord.state;
+    }
+    else {
+      return "";
+    }
+  }
+
   setActiveWord(id: number): void {
     this.activeWord = this.wordsService.getWordById(id);
   }
 
   getNewWordBySelection(): void {
-    this.newWordToAdd = window.getSelection()?.toString();
+    this.newWordToAdd = window.getSelection()?.toString().trim();
     // restart the selected active word
     this.activeWord = null;
   }

@@ -3,8 +3,11 @@
     content: "";
     background-color: $color;
     height: 0.3rem;
-    width: auto;
+    width: 100%;
     display: block;
+    position: absolute;
+    bottom: 3px;
+    z-index: -10;
 }
 
 #words-container {
@@ -15,6 +18,9 @@
 
 span {
     font-size: 32px;
+    display: inline-block;
+    white-space: pre;
+    position: relative;
 }
 
 .unknown::after {
@@ -25,6 +31,9 @@ span {
 }
 .learning::after {
     @include wordState(green);
+}
+.skipped {
+    opacity: 0.6;
 }
 .skipped::after {
     @include wordState(gray);

@@ -39,8 +39,19 @@ export class WordsService {
     else {
       throw new Error("The word can't be found");
     }
-    // return this.wordsList.filter(word => word.id === id)[0];
   }
+
+  findByWord(word: string): Word | null {
+    const wordFound = this.wordsList.find(wordItem => wordItem.word === word);
+    if (wordFound) {
+      return wordFound;
+    }
+    else {
+      // throw new Error("The word can't be found");
+      return null;
+    }
+  }
+
 
   private isRepeated(word: string): boolean {
     const filteredList = this.wordsList.filter(
