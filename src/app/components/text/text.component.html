@@ -1,13 +1,17 @@
 <div id="words-container" (mouseup)="getNewWordBySelection()">
-    <p>{{text}}</p>
+    <p>{{inputText}}</p>
 
     <hr>
 
-    @for (word of wordList; track word.id) {
+    <!-- @for (word of wordList; track word.id) {
     @if (word.id) {
     <span (click)="setActiveWord(word.id)" [ngClass]="word.state">{{word.word}} </span>
     }
+    } -->
+</div>
+<div>
+    @for (item of outputText; track $index) {
+        <span [ngClass]="regWord.test(item) ? 'word' : ''">{{item}}</span>
     }
 </div>
-
 <app-word-info [word]="activeWord" [newWord]="newWordToAdd"></app-word-info>
