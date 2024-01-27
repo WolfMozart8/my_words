@@ -4,11 +4,12 @@ import { NgClass } from '@angular/common';
 import { WordsService } from '../../services/words.service';
 import { mockList } from '../../mock/mock_wordList';
 import { WordInfoComponent } from '../word-info/word-info.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-text',
   standalone: true,
-  imports: [NgClass, WordInfoComponent],
+  imports: [NgClass, WordInfoComponent, FormsModule],
   templateUrl: './text.component.html',
   styleUrl: './text.component.scss',
 })

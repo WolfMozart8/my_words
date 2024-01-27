@@ -42,7 +42,7 @@ export class WordsService {
   }
 
   findByWord(word: string): Word | null {
-    const wordFound = this.wordsList.find(wordItem => wordItem.word === word);
+    const wordFound = this.wordsList.find(wordItem => wordItem.word === word.toLowerCase());
     if (wordFound) {
       return wordFound;
     }

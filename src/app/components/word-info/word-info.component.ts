@@ -21,7 +21,7 @@ export class WordInfoComponent {
   addWord() {
     if (this.newWord) {
       const wordToAdd: Word = {
-        word: this.newWord,
+        word: this.newWord.toLowerCase(),
         state: this.newWordState,
       };
 

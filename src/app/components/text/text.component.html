@@ -14,4 +14,5 @@
         }
     </div>
 </div>
+<textarea name="output-text" id="output-text" cols="30" rows="10" [(ngModel)]="inputText" (input)="getOutputText()">{{inputText}}</textarea>
 <app-word-info [word]="activeWord" [newWord]="newWordToAdd"></app-word-info>
